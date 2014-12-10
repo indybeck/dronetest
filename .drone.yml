@@ -1,8 +1,6 @@
-image: mischief/docker-golang
-env:
-  - GOPATH=/var/cache/drone
-script:
-  - go build
-  - go test -v
+image: go1.2
 services:
-  - c12e/redis
+  - postgres
+script:
+  - createdb -h localhost -U postgres drone
+  - psql -U postgres -h localhost -c "SELECT 1" drone
