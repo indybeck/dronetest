@@ -1,6 +1,11 @@
 image: go1.2
 services:
   - postgres
+  - mongodb
 script:
   - createdb -h localhost -U postgres drone
   - psql -U postgres -h localhost -c "SELECT 1" drone
+  - sudo start mongodb
+  - sleep 20
+  - mongo
+  - sleep 120
