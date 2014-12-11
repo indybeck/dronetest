@@ -1,4 +1,4 @@
-image: ubuntu:14.04
+image: nova.registry.c1.io:5000/ubuntu
 services:
   - c12e/mongodb
 script:
