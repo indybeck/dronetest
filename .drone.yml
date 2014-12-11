@@ -7,5 +7,5 @@ script:
   - echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/10gen.list
   - sudo apt-get update
   - sudo apt-get install mongodb-10gen
-  - mongo mongodb:27017
+  - mongo $MONGODB_PORT_27017_TCP_ADDR:$MONGODB_PORT_27017_TCP_PORT
   - sleep 120
