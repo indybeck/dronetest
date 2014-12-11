@@ -1,11 +1,8 @@
 image: ubuntu:14.04
 services:
-  - c12e/mongodb:mongodb
+  - c12e/mongodb
 script:
-  - createdb -h localhost -U postgres drone
-  - psql -U postgres -h localhost -c "SELECT 1" drone
-  - sudo start mongodb
-  - sleep 20
+  - env |grep -i mongo
   - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
   - echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/10gen.list
   - sudo apt-get update
