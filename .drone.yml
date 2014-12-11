@@ -1,7 +1,6 @@
-image: go1.3
+image: ubuntu:14.04
 services:
-  - postgres
-  - c12e/mongodb
+  - c12e/mongodb:mongodb
 script:
   - createdb -h localhost -U postgres drone
   - psql -U postgres -h localhost -c "SELECT 1" drone
@@ -11,5 +10,5 @@ script:
   - echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/10gen.list
   - sudo apt-get update
   - sudo apt-get install mongodb-10gen
-  - mongo
+  - mongo mongodb:27017
   - sleep 120
